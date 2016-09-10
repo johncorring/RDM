@@ -1,0 +1,2 @@
+RDM runs in matlab. To install you just need to generate the mex files needed to run the objective function on your system. 
+To do that go to MEX/SOURCE and run cv_install (thanks to Dr. Tim Davis for writing this little build script for mex compilation).
