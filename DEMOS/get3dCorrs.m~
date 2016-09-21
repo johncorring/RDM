@@ -1,0 +1,15 @@
+function [corrPtsX corrPtsY indices] = get3dCorrs(fname1, fname2)
+
+
+%get the first pcl
+[X triX] = read_ply(fname1);
+[Y triY] = read_ply(fname2);
+
+corrPtsX =  clickA3DPoint(X');
+pause
+corrPtsY =  clickA3DPoint(Y');
+
+indices = [];
+
+
+end

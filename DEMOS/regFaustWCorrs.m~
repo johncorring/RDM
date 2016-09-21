@@ -1,0 +1,60 @@
+
+F1 = '/3D/tr_reg_000.ply';
+F2 = '/3D/tr_reg_001.ply';
+
+[X triX] = read_ply(F1);
+[Y triY] = read_ply(F2);
+
+[mx dx] = size(triX);
+[nx dx] = size(X);
+
+[my dy] = size(triY);
+[ny dy] = size(Y);
+
+subRate = 10;
+corrPtsInit = [5721 5211 5716 5437 2401 1591 2098 1561];
+
+%get oriented points from the 3d pointsets
+%first ptset
+for i = 1:mx
+
+    inds = triX(i,:);
+    
+    x1 = [X(inds(1),:)];
+    x2 = [X(inds(2),:)];
+    x3 = [X(inds(3),:)];
+    
+    xSource(i,:) = (x1 + x2 + x3)/3;
+    nu = cross(x1-xSource(i,:), x2-xSource(i,:));
+    
+    xSourceNrms(i,:) = nu/norm(nu);
+    [vx vy vz] = cart2sph(xSourceNrms(i,1), xSourceNrms(i,2), xSourceNrms(i,3));
+    
+    
+end
+ 
+nu1 = xSourceNrms(1:subRate:end,:);
+sh1 = xSource(1:subRate:end,:);
+
+%second ptset
+
+for i = 1:my
+
+    inds = triY(i,:);
+    
+    y1 = [Y(inds(1),:)];
+    y2 = [Y(inds(2),:)];
+    y3 = [Y(inds(3),:)];
+    
+    ySource(i,:) = (y1 + y2 + y3)/3;
+    nu = cross(x1-xSource(i,:), y2-ySource(i,:));
+    
+    xSourceNrms(i,:) = nu/norm(nu);
+    [vx vy vz] = cart2sph(xSourceNrms(i,1), xSourceNrms(i,2), xSourceNrms(i,3));
+    
+    
+end
+ 
+nu1 = xSourceNrms(1:subRate:end,:);
+sh1 = xSource(1:subRate:end,:);
+

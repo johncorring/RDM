@@ -1,0 +1,29 @@
+function [nonrigid affine] = getCorrsTransformation(cPts, ...
+    X, Y, bendPenalty)
+    
+    [K U dUx dUy dUz] = compute_kernel2(cPts, X, 0, 'tps', 1);
+ 
+    
+    %{
+    [m d] = size(X);
+    [n d] = size(cPts);
+    
+    Pm = [ones(m,1) X];
+    Pn = [ones(n,1) cPts];
+    PP = null(Pn');
+    B = [Pm U*PP];
+    
+    Qm = [ones(m,1) Y];
+    Qn = [ones(n,1) cPts];
+    QQ = null(Qn');
+    C = [Qm U*QQ];
+    %}
+    Xh = [ ones(1, size(X,1)); X'];
+    Y = Y';
+    
+    S = K+1/bendPenalty*eye(size(K,1));
+    
+    affine = (Xh*(S\Xh'))\(Xh*(S\Y'));
+    nonrigid = S\(Y' - Xh'*affine);
+
+end
