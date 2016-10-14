@@ -18,6 +18,7 @@ If using this code for academic purposes please cite
   biburl    = {http://dblp.uni-trier.de/rec/bib/conf/eccv/CorringR16},
   bibsource = {dblp computer science bibliography, http://dblp.org}
 }
+
 Please do not remove this README file from the project.
 
 Thanks!
