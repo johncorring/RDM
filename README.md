@@ -3,17 +3,21 @@ Resonant Deformable Matching: code for registering oriented point-sets
 
 If using this code for academic purposes please cite 
 
-@inproceedings{DBLP:conf/eccv/CORRINGR16
+@inproceedings{DBLP:conf/eccv/CorringR16,
   author    = {John Corring and
                Anand Rangarajan},
   title     = {Resonant Deformable Matching: Simultaneous Registration and Reconstruction},
-  booktitle = {The 14th European Conference on Computer Vision, {ECCV} 2016,
-               Amsterdam, The Netherlands, Oct. 10 - 14, 2016},
-  pages     = {TBD},
+  booktitle = {Computer Vision - {ECCV} 2016 - 14th European Conference, Amsterdam,
+               The Netherlands, October 11-14, 2016, Proceedings, Part {VI}},
+  pages     = {51--68},
   year      = {2016},
-  crossref  = {DBLP:conf/eccv/2016},
+  crossref  = {DBLP:conf/eccv/2016-6},
+  url       = {http://dx.doi.org/10.1007/978-3-319-46466-4_4},
+  doi       = {10.1007/978-3-319-46466-4_4},
+  timestamp = {Tue, 20 Sep 2016 08:50:56 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/eccv/CorringR16},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
-
 Please do not remove this README file from the project.
 
 Thanks!
